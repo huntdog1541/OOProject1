@@ -14,9 +14,11 @@ public class Race extends JComponent
 
 	private static final Car NULL = null;
 	
-	private Car cars[] = new Car[5];
+	private Car cars[] = new Car[4];
+	//private int carsWon[] = new int[4];
 	private int arraySize;
 	private int endLineX = 500;
+	private int carWon = 0;
 	//private Car car1;
 	private Track t1;
 	private Color colors[] = { Color.red, Color.green, Color.blue, Color.cyan};
@@ -28,7 +30,7 @@ public class Race extends JComponent
 		//car1 = new Car(100, 200, Color.red);
 		t1 = new Track();
 		arraySize = 1;
-		System.out.println(" Race() ");
+		
 	}
 	
 	public Race(int x)
@@ -36,7 +38,7 @@ public class Race extends JComponent
 		t1 = new Track();
 		int i = 0, y = 200;
 		arraySize = x;
-		System.out.println(" Race(int) ");
+		
 		
 		while(i < x)
 		{
@@ -74,7 +76,6 @@ public class Race extends JComponent
 		int i = 0;
 		
 		t1.draw(g);
-		System.out.println(" paintComponent ");
 		
 		while(i < arraySize)
 		{
@@ -87,13 +88,14 @@ public class Race extends JComponent
 
 	public void moveCars()
 	{
-		System.out.println("\nmoveCars");
+		
 		int i = 0;
 		while(i < arraySize)
 		{
 			cars[i].moveCar();
 			i++;
 		}
+		blimp.blimpMove();
 		//car1.moveCar();
 		//cars[0].moveCar();
 		repaint();
@@ -108,7 +110,6 @@ public class Race extends JComponent
 	public int finished()
 	{
 		int i = 0, j = 1;
-		System.out.println(" finished ");
 	
 		while(j < 5)
 		{
@@ -120,7 +121,6 @@ public class Race extends JComponent
 	
 	private int checkEnd(Car c)
 	{
-		System.out.println(" checkEnd(Car c) ");
 		
 		int x = 0;
 		if(c != NULL)
@@ -137,6 +137,36 @@ public class Race extends JComponent
 		{
 			return 3;
 		}
+	}
+	
+	public void Ending()
+	{
+		int i = 0;
+		int cr = 0;
+		int tempX = 0;
+		while(i < arraySize)
+		{
+			if(cars[i].getX() > tempX)
+			{
+				cr = i + 1;
+				tempX = cars[i].getX();
+			}
+			i++;
+		}
+		
+		carWon = cr;
+		
+		System.out.print("Car #");
+		System.out.print(carWon);
+		System.out.print(" Won!");
+	}
+	
+	public int getCarWon() {
+		return carWon;
+	}
+
+	public void setCarWon(int carWon) {
+		this.carWon = carWon;
 	}
 	
 }
