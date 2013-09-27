@@ -20,6 +20,7 @@ public class Race extends JComponent
 	//private Car car1;
 	private Track t1;
 	private Color colors[] = { Color.red, Color.green, Color.blue, Color.cyan};
+	private Blimp blimp = new Blimp();
 	
 	public Race()
 	{
@@ -80,6 +81,7 @@ public class Race extends JComponent
 			cars[i].draw(g);
 			i++;
 		}
+		blimp.draw(g);
 		//car1.draw(g);	
 	}
 
