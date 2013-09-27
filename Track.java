@@ -3,25 +3,28 @@ import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.Rectangle;
 
 
+@SuppressWarnings("unused")
 public class Track {
 
 	private static final long serialVersionUID = 7443883203941320122L;
 
-	Rectangle2D startLine;
-	Rectangle2D finishLine;
+	Rectangle startLine;
+	Rectangle finishLine;
 	
 	public Track()
 	{
-		startLine = new Rectangle(100, 150, 50, 50);
-		finishLine = new Rectangle(700, 150, 50, 50);
+		System.out.println(" Track() ");
+		startLine = new Rectangle(100, 150, 50, 500);
+		finishLine = new Rectangle(700, 150, 50, 500);
 	}
 	
 	public void draw(Graphics g)
 	{
-		
 		Graphics2D g2 = (Graphics2D) g;
+		System.out.println(" draw Tracks ");
 		
 		g2.draw(startLine);
 		g2.draw(finishLine);
