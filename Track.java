@@ -16,7 +16,7 @@ public class Track {
 	
 	public Track()
 	{
-		System.out.println(" Track() ");
+		
 		startLine = new Rectangle(100, 150, 50, 500);
 		finishLine = new Rectangle(700, 150, 50, 500);
 	}
@@ -24,7 +24,7 @@ public class Track {
 	public void draw(Graphics g)
 	{
 		Graphics2D g2 = (Graphics2D) g;
-		System.out.println(" draw Tracks ");
+		
 		
 		g2.draw(startLine);
 		g2.draw(finishLine);
