@@ -55,9 +55,9 @@ public class Car
 	public void moveCar()
 	{
 		int nX = 0;
-		nX = randomGenerator.nextInt(10);
+		nX = (randomGenerator.nextInt(10) + 1);
 		x = x + nX;
-		System.out.println("\nThe random number is ");
+		System.out.println("The random number is ");
 		System.out.println(nX);
 		System.out.println("\n");
 	}
