@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.io.IOException;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -8,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
+@SuppressWarnings("unused")
 public class Run {
 
 	public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class Run {
 		JFrame frame = new JFrame();
 		frame.setSize(900, 700);
 		frame.setTitle("RACE");
-		int x =0;
+		//int x =0;
 		int numCars = 4;
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,7 +28,7 @@ public class Run {
 		
 		frame.setVisible(true);
 		
-		JPanel message = new JPanel();
+		/*JPanel message = new JPanel();
         message.add(new JLabel("Label:"));              
         message.add(new JTextField("ABCD"));
         message.setBackground(Color.gray);
@@ -37,9 +39,14 @@ public class Run {
         dialog.setContentPane(message);
         dialog.pack();
         dialog.setLocationRelativeTo(frame);
-        dialog.setVisible(true);
+        dialog.setVisible(true);*/
         
-		b.placeBet(r1, x);
+		try {
+			b.placeBet(r1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
