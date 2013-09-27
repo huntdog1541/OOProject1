@@ -9,10 +9,11 @@ public class Run {
 		frame.setSize(900, 700);
 		frame.setTitle("RACE");
 		int x =0;
+		int numCars = 4;
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Race r1 = new Race();
+		Race r1 = new Race(numCars);
 		frame.add(r1);
 		
 		frame.setVisible(true);
@@ -32,7 +33,7 @@ public class Run {
 		
 		}
 		
-		r1.printX(1);
+		//r1.printX(1);
 		
 	}
 
