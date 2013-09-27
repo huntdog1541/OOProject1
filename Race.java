@@ -1,6 +1,5 @@
 import java.awt.Color;
 import java.awt.Graphics;
-
 import javax.swing.JComponent;
 
 public class Race extends JComponent 
@@ -14,55 +13,94 @@ public class Race extends JComponent
 
 	private static final Car NULL = null;
 	
-	private Car car1;
-	private Car car2;
-	private Car car3;
-	private Car car4;
+	private Car cars[] = new Car[4];
+	private int arraySize;
+	private int endLineX = 500;
 	
 	public Race()
 	{
-		car1 = new Car(100, 200, Color.red);
+		cars[0] = new Car(100, 200, Color.red);
 	}
 	
 	public Race(int x)
 	{
-		if(x > 1)
-			if(x > 2)
-				if(x > 3)
+		arraySize = x + 1;
+		if(x > 4)
+		{
+			System.out.println("There was an error");
+		}
+		if(x < 1)
+			if(x < 2)
+				if(x < 3)
 				{
-					if(x == 4)
+					if(x < 4)
 					{
-						car4 = new Car(100, 500, Color.cyan);
+						cars[3] = new Car(100, 500, Color.cyan);
 					}
 				}
 				else
-					car3 = new Car(100, 400, Color.blue);
+					cars[2] = new Car(100, 400, Color.blue);
 			else
-				car2 = new Car(100, 300, Color.green);		
+				cars[1] = new Car(100, 300, Color.green);		
 		else
-			car1 = new Car(100, 200, Color.red);
+			cars[0] = new Car(100, 200, Color.red);
 	}
 	
 	public void paintComponent(Graphics g)
 	{	
-		if(car1 != NULL)
-		car1.draw(g);
-		if(car2 != NULL)
-		car2.draw(g);
-		if(car3 != NULL)
-		car3.draw(g);
-		if(car4 != NULL)
-		car4.draw(g);
+		int i = 0;
+		while(i < arraySize)
+		{
+			cars[i].draw(g);
+		}
 	}
 
-	public void moveCars(int x)
+	public void moveCars()
 	{
 		System.out.println("\nmoveCars\n");
-		if(x == 1)
+		int i = 0;
+		while(i < arraySize)
 		{
-			car1.moveCar();
+			cars[i].moveCar();
 		}
+		
 		repaint();
 	}
 	
+	public void printX(int x)
+	{
+		System.out.println("\nThe X is at ");
+		System.out.println(cars[x].getX());
+	}
+	
+	public int finished()
+	{
+		int i = 0, j = 1;
+	
+		while(j < 5)
+		{
+			i = checkEnd(cars[j]);
+			j++;
+		}
+		return i;
+	}
+	
+	private int checkEnd(Car c)
+	{
+		int x = 0;
+		if(c != NULL)
+		{
+			x = c.getX();
+			if(x >= endLineX)
+			{
+				return 1;
+			}
+			else
+				return 0;
+		}
+		else
+		{
+			return 3;
+		}
+	}
 }
