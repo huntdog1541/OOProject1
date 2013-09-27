@@ -16,10 +16,12 @@ public class Race extends JComponent
 	private Car cars[] = new Car[4];
 	private int arraySize;
 	private int endLineX = 500;
+	private Car car1;
 	
 	public Race()
 	{
-		cars[0] = new Car(100, 200, Color.red);
+		//cars[0] = new Car(100, 200, Color.red);
+		car1 = new Car(100, 200, Color.red);
 	}
 	
 	public Race(int x)
@@ -49,21 +51,22 @@ public class Race extends JComponent
 	public void paintComponent(Graphics g)
 	{	
 		int i = 0;
-		while(i < arraySize)
+		/*while(i < arraySize)
 		{
 			cars[i].draw(g);
-		}
+		}*/
+		car1.draw(g);
 	}
 
 	public void moveCars()
 	{
 		System.out.println("\nmoveCars\n");
 		int i = 0;
-		while(i < arraySize)
+		/*while(i < arraySize)
 		{
 			cars[i].moveCar();
-		}
-		
+		}*/
+		car1.moveCar();
 		repaint();
 	}
 	
