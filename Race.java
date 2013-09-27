@@ -22,6 +22,7 @@ public class Race extends JComponent
 	{
 		//cars[0] = new Car(100, 200, Color.red);
 		car1 = new Car(100, 200, Color.red);
+		Track t1 = new Track();
 	}
 	
 	public Race(int x)
@@ -60,7 +61,7 @@ public class Race extends JComponent
 
 	public void moveCars()
 	{
-		System.out.println("\nmoveCars\n");
+		System.out.println("\nmoveCars");
 		int i = 0;
 		/*while(i < arraySize)
 		{
