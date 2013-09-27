@@ -20,12 +20,14 @@ public class Car
 	
 	public Car()
 	{
+		System.out.println(" Car() ");
 		x = 100;
 		y = 100;
 	}
 	
 	public Car(int VarX, int VarY, Color cc)
 	{
+		System.out.println(" Car(int, int, Color) ");
 		x = VarX;
 		y = VarY;
 		carColor = cc;
@@ -59,13 +61,13 @@ public class Car
 		x = x + nX;
 		System.out.println("The random number is ");
 		System.out.println(nX);
-		System.out.println("\n");
+		//System.out.println("\n");
 	}
 	
 	public void draw(Graphics g)
 	{
 		Graphics2D g2 = (Graphics2D) g;
-		
+		System.out.println(" Draw car ");
 		Rectangle body = new Rectangle(x, y + 10, 60, 10);
 		g2.setColor(carColor);
 		g2.fillRect(x, y + 10, 60, 10);
