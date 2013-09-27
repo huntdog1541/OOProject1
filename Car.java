@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.lang.Math;
+import java.util.Random;
 
 
 @SuppressWarnings("unused")
@@ -15,6 +16,7 @@ public class Car
 	private int numberOfRaces;
 	private int numberOfWins;
 	private double percentOfWins;
+	Random randomGenerator = new Random();
 	
 	public Car()
 	{
@@ -53,8 +55,11 @@ public class Car
 	public void moveCar()
 	{
 		int nX = 0;
-		nX = (int)Math.random()*10;
+		nX = randomGenerator.nextInt(10);
 		x = x + nX;
+		System.out.println("\nThe random number is ");
+		System.out.println(nX);
+		System.out.println("\n");
 	}
 	
 	public void draw(Graphics g)
