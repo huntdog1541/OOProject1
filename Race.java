@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+
 import javax.swing.JComponent;
 
 public class Race extends JComponent 
@@ -13,21 +14,39 @@ public class Race extends JComponent
 
 	private static final Car NULL = null;
 	
-	private Car cars[] = new Car[4];
+	private Car cars[] = new Car[5];
 	private int arraySize;
 	private int endLineX = 500;
-	private Car car1;
+	//private Car car1;
+	private Track t1;
+	private Color colors[] = { Color.red, Color.green, Color.blue, Color.cyan};
 	
 	public Race()
 	{
-		//cars[0] = new Car(100, 200, Color.red);
-		car1 = new Car(100, 200, Color.red);
-		Track t1 = new Track();
+		cars[0] = new Car(100, 200, Color.red);
+		//car1 = new Car(100, 200, Color.red);
+		t1 = new Track();
+		arraySize = 1;
+		System.out.println(" Race() ");
 	}
 	
 	public Race(int x)
 	{
-		arraySize = x + 1;
+		t1 = new Track();
+		int i = 0, y = 200;
+		arraySize = x;
+		System.out.println(" Race(int) ");
+		
+		while(i < x)
+		{
+			cars[i] = new Car(100, y, colors[i]);
+			y += 100;
+			i++;
+		}
+		
+		
+		
+		/*arraySize = x + 1;
 		if(x > 4)
 		{
 			System.out.println("There was an error");
@@ -46,28 +65,35 @@ public class Race extends JComponent
 			else
 				cars[1] = new Car(100, 300, Color.green);		
 		else
-			cars[0] = new Car(100, 200, Color.red);
+			cars[0] = new Car(100, 200, Color.red);*/
 	}
 	
 	public void paintComponent(Graphics g)
 	{	
 		int i = 0;
-		/*while(i < arraySize)
+		
+		t1.draw(g);
+		System.out.println(" paintComponent ");
+		
+		while(i < arraySize)
 		{
 			cars[i].draw(g);
-		}*/
-		car1.draw(g);
+			i++;
+		}
+		//car1.draw(g);	
 	}
 
 	public void moveCars()
 	{
 		System.out.println("\nmoveCars");
 		int i = 0;
-		/*while(i < arraySize)
+		while(i < arraySize)
 		{
 			cars[i].moveCar();
-		}*/
-		car1.moveCar();
+			i++;
+		}
+		//car1.moveCar();
+		//cars[0].moveCar();
 		repaint();
 	}
 	
@@ -80,6 +106,7 @@ public class Race extends JComponent
 	public int finished()
 	{
 		int i = 0, j = 1;
+		System.out.println(" finished ");
 	
 		while(j < 5)
 		{
@@ -91,6 +118,8 @@ public class Race extends JComponent
 	
 	private int checkEnd(Car c)
 	{
+		System.out.println(" checkEnd(Car c) ");
+		
 		int x = 0;
 		if(c != NULL)
 		{
@@ -107,4 +136,5 @@ public class Race extends JComponent
 			return 3;
 		}
 	}
+	
 }
