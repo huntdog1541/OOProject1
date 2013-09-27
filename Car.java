@@ -23,6 +23,7 @@ public class Car
 		System.out.println(" Car() ");
 		x = 100;
 		y = 100;
+		
 	}
 	
 	public Car(int VarX, int VarY, Color cc)
