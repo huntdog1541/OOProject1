@@ -1,10 +1,18 @@
+import java.awt.Color;
+
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 public class Run {
 
 	public static void main(String[] args) {
 		System.out.println("Hello World");
+		Better b = new Better();
 		JFrame frame = new JFrame();
 		frame.setSize(900, 700);
 		frame.setTitle("RACE");
@@ -18,20 +26,22 @@ public class Run {
 		
 		frame.setVisible(true);
 		
-		while( x != 100)
-		{
-		r1.moveCars();
-		x++;
+		JPanel message = new JPanel();
+        message.add(new JLabel("Label:"));              
+        message.add(new JTextField("ABCD"));
+        message.setBackground(Color.gray);
+        JOptionPane.showConfirmDialog(frame, message, "Default made dialog", JOptionPane.YES_NO_OPTION);
 		
-		try {
-		    Thread.sleep(100);
-		} catch (InterruptedException e) {
-		    e.printStackTrace();
-		    // handle the exception...        
-		    // For example consider calling Thread.currentThread().interrupt(); here.
-		}
+		JDialog dialog = new JDialog(frame, "Custom made dialog");
+		dialog.setModal(true);
+        dialog.setContentPane(message);
+        dialog.pack();
+        dialog.setLocationRelativeTo(frame);
+        dialog.setVisible(true);
+        
+		b.placeBet(r1, x);
 		
-		}
+		
 		
 		//r1.printX(1);
 		
